@@ -34,6 +34,8 @@ const tiles: { href: string; icon: IconName; pre: string; title: string; sub?: s
   { href: "#footer", icon: "clock", pre: "The", title: "Day", sub: "Save the date" },
 ];
 
+const parents = wedding.parents.filter((p) => p.names.trim());
+
 function Monogram({ className }: { className?: string }) {
   const [a, b] = wedding.monogram;
   return <span className={className}>{a}<span className="amp">&amp;</span>{b}</span>;
@@ -159,14 +161,16 @@ export default function Invitation({ guest = "" }: { guest?: string }) {
               </h1>
               <p className="hero-sub">Invite you to their {wedding.eventName.toLowerCase()}</p>
               <div className="divider" aria-hidden="true"><span /><i /><span /></div>
-              <div className="parents">
-                {wedding.parents.map((p) => (
-                  <div className="parent" key={p.label}>
-                    <span className="p-label">{p.label}</span>
-                    <span className="p-names">{p.names}</span>
-                  </div>
-                ))}
-              </div>
+              {parents.length > 0 && (
+                <div className="parents">
+                  {parents.map((p) => (
+                    <div className="parent" key={p.label}>
+                      <span className="p-label">{p.label}</span>
+                      <span className="p-names">{p.names}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
               {guest && (
                 <div className="guest-note">
                   <span className="gn-line">We cordially invite</span>

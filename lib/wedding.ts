@@ -16,8 +16,9 @@ export const wedding = {
   end: "2026-12-03T14:30:00+05:30",
 
   parents: [
-    { label: "Parents of Dulanji", names: "Mr. & Mrs. [Parents' Names]" },
-    { label: "Parents of Nadeesha", names: "Mr. & Mrs. [Parents' Names]" },
+    // Fill in names like "Mr. & Mrs. Sunil Perera"; entries left empty are hidden on the site
+    { label: "Parents of Dulanji", names: "" },
+    { label: "Parents of Nadeesha", names: "" },
   ],
 
   venue: {
