@@ -328,7 +328,7 @@ export default function Invitation({ guest = "" }: { guest?: string }) {
         </nav>
       </main>
 
-      {/* Background music: Pachelbel's Canon in D, US Air Force Band Strolling Strings (public domain, via Wikimedia Commons) */}
+      {/* Background music: "Ordinary" (violin cover) by ViOLiNiA Zhanna Stelmakh */}
       <audio ref={audio} src="/assets/music.mp3" loop preload="auto" />
       {phase !== "closed" && (
         <button type="button" className="music-btn" onClick={toggleMusic}
