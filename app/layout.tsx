@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Cormorant_Infant, Pinyon_Script } from "next/font/google";
-import { coupleNames, wedding } from "@/lib/wedding";
+import { coupleNames, ogImage, wedding } from "@/lib/wedding";
 import "./globals.css";
 
 const body = Cormorant_Garamond({ subsets: ["latin"], weight: ["400", "500", "600"], style: ["normal", "italic"], variable: "--font-body" });
@@ -14,7 +14,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: `${coupleNames} · ${wedding.eventName}`,
     description: `${wedding.dateLong} · ${wedding.venue.name}, ${wedding.venue.area}`,
+    type: "website",
+    images: [ogImage],
   },
+  twitter: { card: "summary_large_image", images: [ogImage.url] },
 };
 
 export const viewport: Viewport = {

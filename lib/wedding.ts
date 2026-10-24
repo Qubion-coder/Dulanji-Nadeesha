@@ -7,7 +7,7 @@ export const wedding = {
 
   // Public address of the site, used for guest links and link previews.
   // Leave empty to use whatever domain the admin page is opened on.
-  baseUrl: "",
+  baseUrl: "https://dulanji-nadeesha-invitation.vercel.app",
 
   eventName: "Wedding Registration Ceremony",
   dateShort: "03 . 12 . 26",
@@ -39,7 +39,7 @@ export const wedding = {
   ],
 
   contacts: [
-    { label: "Dulanji · 076 198 419", href: "tel:076198419", whatsapp: false },
+    { label: "Dulanji · 076 619 8419", href: "tel:0766198419", whatsapp: false },
     { label: "Nadeesha · +371 28 397 103 (WhatsApp)", href: "https://wa.me/37128397103", whatsapp: true },
   ],
 
@@ -51,6 +51,9 @@ export const wedding = {
 };
 
 export const coupleNames = `${wedding.partner1} & ${wedding.partner2}`;
+
+// Link-preview image for WhatsApp, Facebook, etc.
+export const ogImage = { url: "/assets/og-image.jpg", width: 1200, height: 1200, alt: `${coupleNames} · ${wedding.eventName}` };
 
 export const mapsLink =
   "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(wedding.venue.mapQuery);
