@@ -44,6 +44,10 @@ export const wedding = {
   ],
 
   maxGuests: 6,
+
+  // Google Apps Script web app that saves RSVPs to the sheet (google-apps-script/Code.gs).
+  // The RSVP_SCRIPT_URL environment variable overrides this.
+  rsvpScriptUrl: "https://script.google.com/macros/s/AKfycbyRO7fzMXAzLATvuyPd_ys-dT7sZ1fVfItE2CuR0xtClqXkNgTvh47The8I8xenmFPDbg/exec",
 };
 
 export const coupleNames = `${wedding.partner1} & ${wedding.partner2}`;

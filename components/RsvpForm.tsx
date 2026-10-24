@@ -10,19 +10,34 @@ export default function RsvpForm({ defaultName = "" }: { defaultName?: string })
   const [guests, setGuests] = useState(1);
   const [message, setMessage] = useState("");
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
 
-  function submit(e: React.FormEvent) {
+  async function submit(e: React.FormEvent) {
     e.preventDefault();
     if (!attending) {
       setMessage("Please let us know if you'll attend.");
       return;
     }
-    // Hook up a backend (API route, Google Forms, Formspree, etc.) here to store responses.
     const who = name.trim();
-    setMessage(attending === "yes"
-      ? `Thank you, ${who}! We can't wait to celebrate with you.`
-      : `Thank you, ${who}. You'll be missed!`);
-    setSent(true);
+    setSending(true);
+    setMessage("");
+    try {
+      const res = await fetch("/api/rsvp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: who, attending, guests: attending === "yes" ? guests : 0, invitedAs: defaultName }),
+      });
+      const result = await res.json().catch(() => ({ ok: false }));
+      if (!result.ok) throw new Error();
+      setMessage(attending === "yes"
+        ? `Thank you, ${who}! We can't wait to celebrate with you.`
+        : `Thank you, ${who}. You'll be missed!`);
+      setSent(true);
+    } catch {
+      setMessage("Sorry, we couldn't send your RSVP. Please try again or contact us directly.");
+    } finally {
+      setSending(false);
+    }
   }
 
   return (
@@ -48,8 +63,8 @@ export default function RsvpForm({ defaultName = "" }: { defaultName?: string })
           </div>
         </div>
       )}
-      <button type="submit" className="btn btn-block" disabled={sent}>
-        <Icon name="send" size={16} stroke={1.6} />Send our RSVP
+      <button type="submit" className="btn btn-block" disabled={sent || sending}>
+        <Icon name="send" size={16} stroke={1.6} />{sending ? "Sending..." : sent ? "RSVP sent" : "Send our RSVP"}
       </button>
       <p className="form-msg" role="status" aria-live="polite">{message}</p>
     </form>
