@@ -9,11 +9,10 @@ import { coupleNames, mapsEmbed, mapsLink, wedding } from "@/lib/wedding";
 
 type Phase = "closed" | "opening" | "gone" | "removed";
 
-const sections = ["hero", "agenda", "events", "venue", "rsvp"];
+const sections = ["hero", "events", "venue", "rsvp", "footer"];
 
 const topNav = [
   { id: "hero", label: "Home" },
-  { id: "agenda", label: "Agenda" },
   { id: "events", label: "Details" },
   { id: "rsvp", label: "RSVP" },
   { id: "venue", label: "Location" },
@@ -23,13 +22,13 @@ const bottomNav: { id: string; label: string; icon: IconName }[] = [
   { id: "hero", label: "Home", icon: "home" },
   { id: "events", label: "Details", icon: "calendar" },
   { id: "rsvp", label: "RSVP", icon: "mail" },
-  { id: "agenda", label: "Agenda", icon: "list" },
   { id: "venue", label: "Location", icon: "pin" },
+  { id: "footer", label: "Contact", icon: "phone" },
 ];
 
 const tiles: { href: string; icon: IconName; pre: string; title: string; sub?: string; accent?: boolean }[] = [
-  { href: "#agenda", icon: "list", pre: "The", title: "Agenda", sub: "How the day unfolds" },
-  { href: "#events", icon: "calendar", pre: "The", title: "Details", sub: "Date & venue" },
+  { href: "#events", icon: "calendar", pre: "The", title: "Details", sub: "How the day unfolds" },
+  { href: "#venue", icon: "pin", pre: "The", title: "Location", sub: "How to find us" },
   { href: "#rsvp", icon: "mail", pre: "Kindly", title: "Rsvp", accent: true },
   { href: "#footer", icon: "clock", pre: "The", title: "Day", sub: "Save the date" },
 ];
@@ -179,7 +178,7 @@ export default function Invitation({ guest = "" }: { guest?: string }) {
                 </div>
               )}
               <a href="#rsvp" className="btn">You&apos;re invited <Icon name="arrow" size={16} stroke={1.6} /></a>
-              <a href="#agenda" className="scroll-cue">Scroll<span><Icon name="chevron" size={16} stroke={1.6} /></span></a>
+              <a href="#events" className="scroll-cue">Scroll<span><Icon name="chevron" size={16} stroke={1.6} /></span></a>
             </div>
 
             <div className="hero-visual">
@@ -225,30 +224,12 @@ export default function Invitation({ guest = "" }: { guest?: string }) {
           </div>
         </section>
 
-        {/* ============ AGENDA ============ */}
-        <section id="agenda" className="wrap section">
-          <div className="sec-head reveal">
-            <span className="kicker">Order of the Day</span>
-            <h2>The <span className="script">Agenda</span></h2>
-            <p className="lead">Here&apos;s how our special morning will unfold. We&apos;d love for you to be there for every moment.</p>
-          </div>
-          <div className="agenda-card reveal">
-            <div className="timeline">
-              {wedding.agenda.map((a) => (
-                <div className="tl-item" key={a.time}>
-                  <span className="year">{a.time}</span>
-                  <div><h4>{a.title}</h4></div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* ============ DETAILS ============ */}
         <section id="events" className="wrap section">
           <div className="sec-head reveal">
             <span className="kicker">{wedding.dateLong}</span>
             <h2>The <span className="script">Details</span></h2>
+            <p className="lead">Here&apos;s how our special day will unfold. We&apos;d love for you to be there for every moment.</p>
           </div>
           <div className="events">
             {wedding.events.map((ev) => (
@@ -257,7 +238,7 @@ export default function Invitation({ guest = "" }: { guest?: string }) {
                 <span className="ev-title">{ev.title}</span>
                 <div className="ev-time">{ev.time}</div>
                 <span className="ev-rule" aria-hidden="true" />
-                <p>{ev.lines[0]}<br />{ev.lines[1]}</p>
+                <p>{ev.note}</p>
               </div>
             ))}
           </div>

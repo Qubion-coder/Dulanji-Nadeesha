@@ -323,21 +323,6 @@ button { font: inherit; cursor: pointer; }
 .lbl { text-transform: uppercase; letter-spacing: 0.26em; font-size: 0.62rem; opacity: 0.85; }
 .colon { display: none; align-self: flex-start; margin: 0.25rem 0.5rem 0; opacity: 0.4; font-family: var(--f-head); font-size: clamp(1.6rem, 3vw, 2.6rem); line-height: 1; }
 
-/* Story */
-.agenda-card {
-  max-width: 34rem; margin: 0 auto;
-  padding: 5rem 1.75rem 2.75rem;
-  background: var(--paper); border: 1px solid var(--line);
-  border-radius: 999px 999px 18px 18px;
-  box-shadow: 0 16px 36px -26px rgba(61,61,51,0.4);
-}
-.timeline { display: flex; flex-direction: column; gap: 1.25rem; max-width: 22rem; margin: 0 auto; }
-.tl-item + .tl-item { padding-top: 1.25rem; border-top: 1px solid var(--line); }
-.tl-item { display: flex; gap: 1.25rem; align-items: flex-start; }
-.year { flex-shrink: 0; min-width: 110px; white-space: nowrap; font-family: var(--f-head); color: var(--sage-deep); font-size: 1.4rem; letter-spacing: 0.04em; }
-.tl-item h4 { margin-bottom: 0.125rem; font-family: var(--f-head); color: var(--ink); font-weight: 600; font-size: 1.25rem; }
-.tl-item p { font-size: 0.98rem; color: var(--ink-2); }
-
 /* Details */
 .events { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.25rem; max-width: 56rem; margin: 0 auto; }
 .event {
@@ -543,7 +528,6 @@ button { font: inherit; cursor: pointer; }
   .colon { display: block; }
   .events { gap: 2rem; }
   .event { width: calc((100% - 2rem) / 2); }
-  .agenda-card { padding: 7rem 3rem 3.25rem; }
   .venue-grid { gap: 2rem; }
   .venue-card { flex-direction: row; align-items: flex-start; text-align: left; gap: 1.25rem; }
   .dir-link { justify-content: flex-start; }

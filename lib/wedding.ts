@@ -28,18 +28,14 @@ export const wedding = {
     mapQuery: "Colombo Court Hotel, Colombo 03, Sri Lanka",
   },
 
+  // Order of the day, shown as cards in the Details section
   events: [
-    { title: "Registration", time: "From 9:30 AM", icon: "rings", lines: ["Colombo Court Hotel", "Colombo 03"] },
-    { title: "Celebration", time: "11:00 AM", icon: "glass", lines: ["Colombo Court Hotel", "A toast to love & lunch together"] },
-  ],
-
-  agenda: [
-    { time: "9:30 AM", title: "Arrival & Settle In" },
-    { time: "10:10 AM", title: "Marriage Registration" },
-    { time: "10:45 AM", title: "Bar Opens" },
-    { time: "11:00 AM", title: "Toast to Love" },
-    { time: "12:00 PM", title: "Lunch Served" },
-    { time: "2:30 PM", title: "Farewell & Wrap Up" },
+    { title: "Arrival & Settle In", time: "9:30 AM", icon: "pin", note: "Colombo Court Hotel, Colombo 03" },
+    { title: "Marriage Registration", time: "10:10 AM", icon: "rings", note: "The signing of our marriage" },
+    { title: "Bar Opens", time: "10:45 AM", icon: "glass", note: "Drinks & mingling" },
+    { title: "Toast to Love", time: "11:00 AM", icon: "heart", note: "Raise a glass with us" },
+    { title: "Lunch Served", time: "12:00 PM", icon: "utensils", note: "Lunch together" },
+    { title: "Farewell & Wrap Up", time: "2:30 PM", icon: "sparkle", note: "Thank you for celebrating with us" },
   ],
 
   contacts: [
